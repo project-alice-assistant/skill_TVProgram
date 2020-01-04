@@ -1,0 +1,1 @@
+{"name": "TVProgram", "version": 0.01, "author": "philipp2310", "maintainers": ["maxbachmann", "Psychokiller1888"], "desc": "What's on TV today?", "aliceMinVersion": 0.13, "systemRequirements": [], "pipRequirements": ["xmltodict"], "conditions": {"lang": ["de"], "online": true}}

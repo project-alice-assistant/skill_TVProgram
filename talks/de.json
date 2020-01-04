@@ -1,0 +1,236 @@
+{
+	"noList": [
+		"Keine Programmliste definiert.",
+		"Du hast keine Favoriten."
+	],
+	"noLaterInformation": [
+		"Keine späteren Informationen verfügbar."
+	],
+	"noInformation": [
+		"Leider konnte ich keine Informationen finden"
+	],
+	"nowTV": [
+		"Jetzt auf {}"
+	],
+	"2015TV": [
+		"Heute Abend auf {}"
+	],
+	"2200TV": [
+		"Heute ab 10 auf {}"
+		],
+	"genericList": {
+		"default": [
+			"{} und {}",
+			"{} sowie {}"
+		],
+		"short": [
+			"{} und {}"
+		]
+	},
+	"state_con": [
+		"{} , aber {}"
+	],
+	"read_one": {
+		"default": [
+			"Auf deiner Senderliste steht {}",
+			"Du hast nur {} auf deiner Senderliste stehen",
+			"Ausser {} steht nichts auf der Senderliste"
+		],
+		"short": [
+			"{}"
+		]
+	},
+	"read_multi": {
+		"default": [
+			"Du hast {} auf deiner Senderliste stehen",
+			"{} stehen auf deiner Senderliste"
+		],
+		"short": [
+			"{}"
+		]
+	},
+	"read_none": {
+		"default": [
+			"Du hast nichts auf deiner Senderliste",
+			"Deine Senderliste ist leer",
+			"Es steht nichts auf der Senderliste",
+			"Du hast noch nichts auf deiner Senderliste"
+		],
+		"short": [
+			"Die Liste ist leer"
+		]
+	},
+	"add_one": {
+		"default": [
+			"Ok, ich schreibe {} auf die Senderliste",
+			"Ich habe {} auf die Senderliste geschrieben",
+			"{} wurde auf die Senderliste geschrieben",
+			"{} wurde hinzugefügt"
+		],
+		"short": [
+			"{} hinzugefügt"
+		]
+	},
+	"add_multi": {
+		"default": [
+			"Ok, ich schreibe {} auf die Senderliste",
+			"Ich habe {} auf die Senderliste geschrieben",
+			"{} wurden auf die Senderliste geschrieben",
+			"Ich schreibe folgendes auf die Senderliste: {}"
+		],
+		"short": [
+			"{} hinzugefügt"
+		]
+	},
+	"add_f_one": {
+		"default": [
+			"{} ist bereits vorhanden",
+			"{} steht schon auf der Liste"
+		],
+		"short": [
+			"{} ist bereits vorhanden"
+		]
+	},
+	"add_f_multi": {
+		"default": [
+			"{} sind bereits vorhanden",
+			"{} standen schon auf der Liste",
+			"{} stehen schon auf deiner Senderliste"
+		],
+		"short": [
+			"{} sind bereits vorhanden"
+		]
+	},
+	"add_what": {
+		"default": [
+			"Was fehlt noch auf der Senderliste?",
+			"Was soll ich auf die Senderliste schreiben?"
+		],
+		"short": [
+			"Was soll ich hinzufügen?"
+		]
+	},
+	"rem_one": {
+		"default": [
+			"Ich habe {} von der Senderliste gestrichen",
+			"Ok, {} wurde von der Liste gestrichen",
+			"{} wurde von der Senderliste gestrichen"
+		],
+		"short": [
+			"{} gestrichen"
+		]
+	},
+	"rem_multi": {
+		"default": [
+			"Ok, {} sind von der Liste gestrichen worden",
+			"{} wurden von der Senderliste gestrichen"
+		],
+		"short": [
+			"{} gestrichen"
+		]
+	},
+	"rem_f_one": {
+		"default": [
+			"ich konnte {} nicht finden.",
+			"{} stand nicht auf der Liste."
+		],
+		"short": [
+			"{} nicht gefunden"
+		]
+	},
+	"rem_f_multi": {
+		"default": [
+			"{} standen nicht auf der Senderliste."
+		],
+		"short": [
+			"{} nicht gefunden"
+		]
+	},
+	"rem_what": {
+		"default": [
+			"Was soll ich von der Senderliste nehmen?",
+			"Was soll ich von der Senderliste streichen?"
+		],
+		"short": [
+			"Was soll ich lüschen?"
+		]
+	},
+	"chk_one": {
+		"default": [
+			"Ich habe {} auf der Senderliste gefunden",
+			"{} steht auf der Senderliste",
+			"{} befindet sich auf der Senderliste"
+		],
+		"short": [
+			"{} ist vorhanden"
+		]
+	},
+	"chk_multi": {
+		"default": [
+			"{} stehen auf der Senderliste",
+			"{} stehen auf deiner Senderliste"
+		],
+		"short": [
+			"{} sind vorhanden"
+		]
+	},
+	"chk_f_one": {
+		"default": [
+			"ich konnte {} nicht finden.",
+			"{} steht nicht auf der Liste."
+		],
+		"short": [
+			"ich habe {} nicht gefunden"
+		]
+	},
+	"chk_f_multi": {
+		"default": [
+			"{} stehen nicht auf der Senderliste.",
+			"{} stehen nicht auf deiner Senderliste"
+		],
+		"short": [
+			"{} sind nicht auf der Liste"
+		]
+	},
+	"chk_what": {
+		"default": [
+			"Ich habe nicht verstanden was ich auf der Senderliste suchen soll.",
+			"Was soll ich suchen?"
+		],
+		"short": [
+			"Was soll ich suchen?"
+		]
+	},
+	"del_all": {
+		"default": [
+			"Ich habe die komplette Senderliste gelöscht.",
+			"Deine Senderliste wurde geleert."
+		],
+		"short": [
+			"Senderliste gelöscht"
+		]
+	},
+	"nodel_all": {
+		"default": [
+			"Das war knapp! Fast hätte ich die Senderliste gelöscht",
+			"Ok, ich lösche nichts",
+			"Keine Sorge, ich merke mir alles!"
+		],
+		"short": [
+			"Ok, alles bleibt."
+		]
+	},
+	"chk_del_all": {
+		"default": [
+			"Bist du dir sicher, dass ich die komplette Senderliste löschen soll?",
+			"Soll ich wirklich die ganze Senderliste löschen?",
+			"Bitte bestätige: komplette Senderliste löschen?"
+		],
+		"short": [
+			"Senderliste wirklich löschen?"
+		]
+	},
+	"authFailed": [
+		"Authentifizierung fehlgeschlagen. Bitte prüfe deine Login Daten in den Einstellungen"
+	]
+}
