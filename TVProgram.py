@@ -178,7 +178,7 @@ class TVProgram(AliceSkill):
         """ build result sentence """
         result_sentence = ""
         for show in program:
-            result_sentence += show['Channel'] + ": " + show['Show'] + "."
+            result_sentence += show['Channel'] + ": " + show['Show'] + " . "
 
         if not result_sentence:
             self.endDialog(session.sessionId, text=self.randomTalk('noInformation'))
