@@ -15,7 +15,7 @@ alice module:install philipp2310/TVProgram
 ### Description
 What is on TV? Look it up on TVProgram!
 
-- Version: 0.01
+- Version: 1.0
 - Author: philipp2310
 - Maintainers: maxbachmann, Psychokiller1888
 - Alice minimum version: 0.13
