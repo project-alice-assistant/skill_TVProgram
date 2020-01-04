@@ -3,7 +3,7 @@ from urllib.request import urlopen
 import xmltodict
 from core.dialog.model.DialogSession import DialogSession
 
-from TVProgram import TVProvider, TimeSlotEnum
+from skills.TVProgram.TVProgram import TVProvider, TimeSlotEnum
 
 
 class TVSpielfilm(TVProvider):
@@ -36,9 +36,9 @@ class TVSpielfilm(TVProvider):
                 if 'enclosure' in item and '@url' in item['enclosure']:
                     entry['Image'] = "<img src=" + item['enclosure']['@url'] + " />"
                 split = item['title'].split(" | ", 2)
-                entry['Time'] = split[0].trim()
-                entry['Channel'] = split[1].trim()
-                entry['Show'] = split[2].trim()
+                entry['Time'] = split[0].strip()
+                entry['Channel'] = split[1].strip()
+                entry['Show'] = split[2].strip()
                 if 'description' in item:
                     entry['Desc'] = item['description']
                 result.append(entry)

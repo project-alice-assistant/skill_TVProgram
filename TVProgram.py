@@ -21,7 +21,7 @@ class TVProvider(ABC):
         if not session.slotValue('TVTimeSlot'):
             return TimeSlotEnum.now
         else:
-            return session.slotValue('TVTimeSlot')
+            return TimeSlotEnum(session.slotValue('TVTimeSlot'))
 
     @abstractmethod
     def getProgram(self, session: DialogSession, channels: list) -> list:
@@ -160,12 +160,12 @@ class TVProgram(AliceSkill):
             return
 
         """ get provider of data """
-        module_name = self.getConfig('TVProvider')
-        if not module_name:
-            module_name = self._FALLBACK_PROVIDER
-            self.updateConfig('TVProvider', module_name)
-        module = importlib.import_module(module_name)
-        class_ = getattr(module, module_name)  # module_name=class_name
+        class_name = self.getConfig('TVProvider')
+        if not class_name:
+            class_name = self._FALLBACK_PROVIDER
+            self.updateConfig('TVProvider', class_name)
+        module = importlib.import_module(f'skills.TVProgram.TVProvider.{class_name}')
+        class_ = getattr(module, class_name)
         provider = class_()
 
         """ get List of dicts """
@@ -180,7 +180,7 @@ class TVProgram(AliceSkill):
             self.endDialog(session.sessionId, text=self.randomTalk('noInformation'))
         else:
             result_sentence = provider.doReplacing(result_sentence)
-            self.endDialog(session.sessionId, text=self.randomTalk(f'{provider.getSlot(session)}TV', [result_sentence]))
+            self.endDialog(session.sessionId, text=self.randomTalk(f'{provider.getSlot(session).value}TV', [result_sentence]))
 
     #### Intents: Fav List handling
     def delFavListIntent(self, session: DialogSession, **_kwargs):
