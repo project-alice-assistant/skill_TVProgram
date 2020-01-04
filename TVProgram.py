@@ -74,6 +74,10 @@ class TVProgram(AliceSkill):
             self._INTENT_FAV_DEL: self.delFavIntent,
             self._INTENT_FAV_CHECK: self.checkFavIntent
         }
+        
+        self._INTENT_FAV_CONF_DEL_ALL.dialogMapping = {
+            self._INTENT_FAV_DEL_ALL: self.delFavListIntent
+        }
 
         super().__init__(self._INTENTS, databaseSchema=self._DATABASE)
 
@@ -188,7 +192,7 @@ class TVProgram(AliceSkill):
             sessionId=session.sessionId,
             text=self.randomTalk('chk_del_all'),
             intentFilter=[self._INTENT_FAV_CONF_DEL_ALL],
-            currentDialogState='confDelList')
+            currentDialogState=str(self._INTENT_FAV_DEL_ALL))
 
     def confFavDelIntent(self, session: DialogSession, **_kwargs):
         if self.Commons.isYes(session):
