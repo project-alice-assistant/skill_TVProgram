@@ -34,9 +34,7 @@ class TVSpielfilm(TVProvider):
 				if '@url' in item.get('enclosure', ''):
 					entry['Image'] = f"<img src={item['enclosure']['@url']} />"
 
-				entry['Time'], entry['Channel'], entry['Show'] = map(
-					str.split, item['title'].split(" | ", maxsplit=2)
-				)
+				entry['Time'], entry['Channel'], entry['Show'] = item['title'].split(" | ", maxsplit=2)
 
 				if 'description' in item:
 					entry['Desc'] = item['description']
