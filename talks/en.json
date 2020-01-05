@@ -1,0 +1,235 @@
+{
+	"noList": [
+		"You don't have a channel List.",
+		"I don't know your favourite TV channels."
+	],
+	"noLaterInformation": [
+		"I don't have any information for later."
+	],
+	"noInformation": [
+		"Sorry, I couldn't find any information."
+	],
+	"nowTV": [
+		"Now on {}"
+	],
+	"2015TV": [
+		"This evening on {}"
+	],
+	"2200TV": [
+		"Tonight on {}"
+		],
+	"genericList": {
+		"default": [
+			"{} and {}"
+		],
+		"short": [
+			"{} and {}"
+		]
+	},
+	"state_con": [
+		"{} , but {}"
+	],
+	"read_one": {
+		"default": [
+			"Your favourite channel is {}",
+			"You got only {} on your channel list.",
+			"Nothing but {} is on your channel list"
+		],
+		"short": [
+			"{}"
+		]
+	},
+	"read_multi": {
+		"default": [
+			"You got {} on your channel list",
+			"{} are on your channel list"
+		],
+		"short": [
+			"{}"
+		]
+	},
+	"read_none": {
+		"default": [
+			"There is nothing on your channel list.",
+			"I don't know your favourite channels.",
+			"I don't know what channels you prefer.",
+			"Your channel list is still empty."
+		],
+		"short": [
+			"The channel list is empty."
+		]
+	},
+	"add_one": {
+		"default": [
+			"Ok, I'll add {} to your channel list.",
+			"I added {} to your channel list.",
+			"{} was added to your channel list.",
+			"{} was added."
+		],
+		"short": [
+			"{} added"
+		]
+	},
+	"add_multi": {
+		"default": [
+			"Ok, I'll add {} to your channel list",
+			"I added {} to your channel list.",
+			"{} were added to your channel list.",
+			"I'll add the following to your channel list: {}"
+		],
+		"short": [
+			"{} added"
+		]
+	},
+	"add_f_one": {
+		"default": [
+			"{} is already there",
+			"{} stood already on your channel list."
+		],
+		"short": [
+			"{} was already on the list."
+		]
+	},
+	"add_f_multi": {
+		"default": [
+			"{} are already there.",
+			"{} stood already on your channel list.",
+			"{} are already on your channel list."
+		],
+		"short": [
+			"{} are already there."
+		]
+	},
+	"add_what": {
+		"default": [
+			"What is missing on your channel list?",
+			"What should I add to your channel list?"
+		],
+		"short": [
+			"What should I add?"
+		]
+	},
+	"rem_one": {
+		"default": [
+			"I removed {} from your channel list",
+			"Ok, {} has been removed from your channel list",
+			"{} was deleted from your channel list"
+		],
+		"short": [
+			"{} removed"
+		]
+	},
+	"rem_multi": {
+		"default": [
+			"Ok, {} were removed from your channel list",
+			"{} were deleted from the channel list"
+		],
+		"short": [
+			"{} removed"
+		]
+	},
+	"rem_f_one": {
+		"default": [
+			"I couldn't find {} .",
+			"{} was not on your list."
+		],
+		"short": [
+			"I couldn't find {} ."
+		]
+	},
+	"rem_f_multi": {
+		"default": [
+			"{} were not on your channel list."
+		],
+		"short": [
+			"{} was not found."
+		]
+	},
+	"rem_what": {
+		"default": [
+			"What should I remove from your channel list?",
+			"What do you want me to delete from the channel list?"
+		],
+		"short": [
+			"What should I delete?"
+		]
+	},
+	"chk_one": {
+		"default": [
+			"I found {} on the channel list",
+			"{} is on your channel list",
+			"{} is one of your favourite channels"
+		],
+		"short": [
+			"{} is on your list"
+		]
+	},
+	"chk_multi": {
+		"default": [
+			"{} are on your channel list",
+			"{} are among your favourite channels"
+		],
+		"short": [
+			"{} are on the list"
+		]
+	},
+	"chk_f_one": {
+		"default": [
+			"I couln't find {}.",
+			"{} is not on your list."
+		],
+		"short": [
+			"{} is not on the list."
+		]
+	},
+	"chk_f_multi": {
+		"default": [
+			"{} are not on your channel list.",
+			"I couldn't find {} on your channel list."
+		],
+		"short": [
+			"{} are not on the list."
+		]
+	},
+	"chk_what": {
+		"default": [
+			"I didn't understand what I should search on your channel list.",
+			"What should I look for?"
+		],
+		"short": [
+			"What should I look for?"
+		]
+	},
+	"del_all": {
+		"default": [
+			"I deleted your complete channel list.",
+			"I cleared your channel list."
+		],
+		"short": [
+			"Channel list cleared."
+		]
+	},
+	"nodel_all": {
+		"default": [
+			"Close one! I almost cleared your channel list.",
+			"Ok, I won't delete anything.",
+			"Don't worry, I remember everything!"
+		],
+		"short": [
+			"Ok, doing nothing."
+		]
+	},
+	"chk_del_all": {
+		"default": [
+			"Are your sure, I should clear your complete channel list?",
+			"Should I really clear the complete channel list?",
+			"Please confirm the deletion of your channel list?"
+		],
+		"short": [
+			"Really clear the channel list?"
+		]
+	},
+	"authFailed": [
+		"Authentification failed. Please check your login in the settings."
+	]
+}

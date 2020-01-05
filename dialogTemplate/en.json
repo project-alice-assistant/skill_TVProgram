@@ -1,0 +1,336 @@
+{
+	"skill": "TVProgram",
+	"icon": "film",
+	"description": "What is on television?",
+	"slotTypes": [
+		{
+			"name": "TVTimeSlot",
+			"matchingStrictness": null,
+			"automaticallyExtensible": true,
+			"useSynonyms": true,
+			"values": [
+			{
+				"value": "now",
+				"synonyms": [
+					"now",
+					"at the moment"
+					]
+			},
+			{
+				"value": "2015",
+				"synonyms": [
+					"prime time",
+					"this evening",
+					"8",
+					"8 o'clock",
+					"20 o'clock",
+					"at 8",
+					"at 8 o'clock",
+					"at 20 o'clock"
+					]
+			},
+			{
+				"value": "2200",
+				"synonyms": [
+					"10",
+					"this night",
+					"10 o'clock",
+					"22",
+					"22 o'clock",
+					"at 10",
+					"at 10 o'clock",
+					"at 22 o'clock"
+					]
+			},
+			{
+				"value": "later",
+				"synonyms": [
+					"later on",
+					"afterwards",
+					"after"
+					]
+			}
+			]	
+		},
+		{
+			"name": "TVChannel",
+			"matchingStrictness": null,
+			"automaticallyExtensible": true,
+			"useSynonyms": true,
+			"values": [
+				{
+					"value": "ARD",
+					"synonyms": [
+						"Das Erste",
+						"ersten",
+						"erstes"
+						]
+				},
+				{
+					"value": "ZDF",
+					"synonyms": [
+						"zweiten",
+						"zweites"
+						]
+				},
+				{
+					"value": "SAT.1",
+					"synonyms": [
+						"Sat eins",
+						"sat"
+						]
+				},
+				{
+					"value": "RTL",
+					"synonyms": [
+						"Radio Television Luxemburg"
+						]
+				},
+				{
+					"value": "ProSieben",
+					"synonyms": [
+						"Pro sieben",
+						"pro 7"
+						]
+				},
+				{
+					"value": "RTL II",
+					"synonyms": [
+						"RTL zwei",
+						"RTL2",
+						"RTL 2"
+						]
+				},
+				{
+					"value": "SUPER RTL"
+				},
+				{
+					"value": "KIKA",
+					"synonyms": [
+						"kinder kanal"
+						]
+				},
+				{
+					"value": "ProSieben MAXX",
+					"synonyms": [
+						"MAXX",
+						"max"
+						]
+				},
+				{
+					"value": "DMAX",
+					"synonyms": [
+						"demax",
+						"d max"
+						]
+				},
+				{
+					"value": "NITRO"
+				},
+				{
+					"value": "SAT.1 Gold",
+					"synonyms": [
+						"Sat eins gold",
+						"sat 1 gold"
+						]
+				},
+				{
+					"value": "COMEDY CENTRAL",
+					"synonyms": [
+						"Comedy"
+						]
+				},
+				{
+					"value": "ARTE"
+				},
+				{
+					"value": "ONE"
+				},
+				{
+					"value": "3sat",
+					"synonyms": [
+						"drei sat"
+						]
+				},
+				{
+					"value": "ZDFneo",
+					"synonyms": [
+						"zdf neo"
+						]
+				},
+				{
+					"value": "sixx",
+					"synonyms": [
+						"six"
+						]
+				},
+				{
+					"value": "ServusTV Deutschland",
+					"synonyms": [
+						"servus",
+						"servus TV"
+						]
+				},
+				{
+					"value": "TELE 5",
+					"synonyms": [
+						"Tele fünf"
+						]
+				},
+				{
+					"value": "VOX"
+				},
+				{
+					"value": "kabel eins",
+					"synonyms": [
+						"kabel",
+						"kabel 1"
+						]
+				}
+			]
+		}
+	],
+	"intents": [
+		{
+			"name": "whatsOnTV_TVT",
+			"description": "Whats on TV?",
+			"enabledByDefault": true,
+			"utterances": [
+				"What's on {RTL:=>channelItem}",
+				"What is on TV {heute Abend:=>TVTimeSlot}?"
+			],
+			"slots": [
+				{
+					"name": "channelItem",
+					"description": null,
+					"required": false,
+					"type": "TVChannel",
+					"missingQuestion": ""
+				},
+				{
+					"name": "TVTimeSlot",
+					"description": null,
+					"required": false,
+					"type": "TVTimeSlot",
+					"missingQuestion": ""
+				}
+			]
+		},
+		{
+			"name": "readFav_TVT",
+			"description": "What are my favourite channels?",
+			"enabledByDefault": true,
+			"utterances": [
+				"What are my favourite channels?",
+				"What is on my channel list?",
+				"What channels do I like to watch?",
+				"please read my favourite channels to me?",
+				"Can you please read the channel list for me?",
+				"Please read out my channel list.",
+				"Please read my channel list for me",
+				"Please read my channel list,",
+				"Can you please read my favourite channels?",
+				"What channels do I like?",
+				"What television channels do I like?",
+				"Which channels are my favourite?"
+			]
+		},
+		{
+			"name": "delAllFav_TVT",
+			"description": "Clear my complete channel list?",
+			"enabledByDefault": true,
+			"utterances": [
+				"Please delete my complete channel list",
+				"Please clear my channel list.",
+				"Clear my channel list",
+				"Can you please clear my channel list?",
+				"Clear my complete channel list",
+				"Delete my complete channel list please",
+				"Please clear the channel list."
+				]
+		},
+		{
+			"name": "checkFav_TVT",
+			"description": "Is ABC on my channel list?",
+			"enabledByDefault": true,
+			"utterances": [
+				"Is {RTL:=>channelItem} my favourite channel?",
+				"Is {RTL:=>channelItem} on my channel list?",
+				"Do I have {RTL:=>channelItem} on my channel list?",
+				"Do you know, I love watching {RTL:=>channelItem}?",
+				"Please check if {RTL:=>channelItem} is on my channel list?",
+				"Please check if {RTL:=>channelItem} is already on my channel list?",
+				"Check please if {RTL:=>channelItem} is on my channel list",
+				"Is {RTL:=>channelItem} on my channel list",
+				"Do I have {RTL:=>channelItem} on my channel list",
+				"Can you please check if {RTL:=>channelItem} is on my channel list?"
+			],
+			"slots": [
+				{
+					"name": "channelItem",
+					"description": null,
+					"required": false,
+					"type": "TVChannel",
+					"missingQuestion": ""
+				}
+			]
+		},
+		{
+			"name": "addFav_TVT",
+			"description": "Add ABC and BBC to my channel list.",
+			"enabledByDefault": true,
+			"utterances": [
+				"Add {RTL:=>channelItem} and {RTL:=>channelItem} to my channe list",
+				"Please add {RTL:=>channelItem} to my channel list",
+				"Can you please add {RTL:=>channelItem} to my channel list",
+				"Include {RTL:=>channelItem} on my channel list",
+				"Please add {RTL:=>channelItem} and {RTL:=>channelItem} to my channel list",
+				"{RTL:=>channelItem} is my favourite tv channel.",
+				"{RTL:=>channelItem} and {RTL:=>channelItem} are my favourite TV channels",
+				"Please remember, {RTL:=>channelItem}, {RTL:=>channelItem} and {RTL:=>channelItem} are my favourite channels",
+				"Please add {RTL:=>channelItem} and {RTL:=>channelItem} to my channel list",
+				"Remember, {RTL:=>channelItem} is my favourite channel",
+				"Please remeber, that {RTL:=>channelItem} and {RTL:=>channelItem} are my favourite channels",
+				"{RTL:=>channelItem} has to be on my channel list",
+				"Please add {RTL:=>channelItem}, {RTL:=>channelItem} and {RTL:=>channelItem} to my channel list",
+				"Please add {RTL:=>channelItem} as well as {RTL:=>channelItem} to my channel list"
+			],
+			"slots": [
+				{
+					"name": "channelItem",
+					"description": null,
+					"required": false,
+					"type": "TVChannel",
+					"missingQuestion": ""
+				}
+			]
+		},
+		{
+			"name": "delFav_TVT",
+			"description": "Remove ABC and CBN from my channel list?",
+			"enabledByDefault": true,
+			"utterances": [
+				"Remove {RTL:=>channelItem} and {RTL:=>channelItem} from my channel list.",
+				"Please remove {RTL:=>channelItem} from my channel list.",
+				"Can you please delete {RTL:=>channelItem} from my channel list",
+				"Remove {RTL:=>channelItem} from my channel list please.",
+				"Please remove {RTL:=>channelItem} and {RTL:=>channelItem} from my channel list",
+				"{RTL:=>channelItem} isn't my favourite channel anymore.",
+				"{RTL:=>channelItem} and {RTL:=>channelItem} aren't my favourite channels anymore.",
+				"Please remember, I don't like the channels {RTL:=>channelItem}, {RTL:=>channelItem} and {RTL:=>channelItem} anymore.",
+				"Remove {RTL:=>channelItem} and {RTL:=>channelItem} from the list of my favourite channels please",
+				"Remmeber, {RTL:=>channelItem} isn't my favourite channel anymore.",
+				"{RTL:=>channelItem} has to be removed from my channel list."
+			],
+			"slots": [
+				{
+					"name": "channelItem",
+					"description": null,
+					"required": false,
+					"type": "TVChannel",
+					"missingQuestion": ""
+				}
+			]
+		}
+	]
+}
