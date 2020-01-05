@@ -20,9 +20,7 @@ class TVProvider(ABC):
 	@staticmethod
 	def getSlot(session: DialogSession) -> TimeSlotEnum:
 		tvTimeSlot = session.slotValue('TVTimeSlot')
-		if tvTimeSlot:
-			return TimeSlotEnum.now
-		return TimeSlotEnum(session.slotValue('TVTimeSlot'))
+		return TimeSlotEnum(tvTimeSlot) if tvTimeSlot else TimeSlotEnum.now
 
 
 	@abstractmethod
@@ -49,27 +47,7 @@ class TVProgram(AliceSkill):
 		]
 	}
 
-	### Intents
-	_INTENT_FAV_CHECK = Intent('checkFav_TVT')
-	_INTENT_FAV_ADD = Intent('addFav_TVT')
-	_INTENT_FAV_DEL = Intent('delFav_TVT')
-	_INTENT_SPELL_WORD = Intent('SpellWord', isProtected=True)
-
-
 	def __init__(self):
-		#TODO the Intent SpellWord appears to be never activated by a continue session
-		# and is deactivated by default -> either remove it or use it in a continue session
-		# (should use the IntentHandler decorator aswell when it will be used)
-		self._INTENTS = [
-			self._INTENT_SPELL_WORD
-		]
-
-		self._INTENT_SPELL_WORD.dialogMapping = {
-			self._INTENT_FAV_ADD  : self.addFavIntent,
-			self._INTENT_FAV_DEL  : self.delFavIntent,
-			self._INTENT_FAV_CHECK: self.checkFavIntent
-		}
-
 		super().__init__(self._INTENTS, databaseSchema=self._DATABASE)
 
 
@@ -87,11 +65,6 @@ class TVProgram(AliceSkill):
 
 	### Session Handling ###
 	def _getChannelItems(self, session: DialogSession) -> list:
-		"""get the values of channelItem as a list of strings"""
-		if session.intentName == self._INTENT_SPELL_WORD:
-			item = ''.join([slot.value['value'] for slot in session.slotsAsObjects['Letters']])
-			return [item.capitalize()]
-
 		items = [x.value['value'] for x in session.slotsAsObjects.get('channelItem', list()) if
 				 x.value['value'] != "unknownword"]
 
