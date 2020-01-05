@@ -5,7 +5,7 @@ from abc import ABC, abstractmethod
 from core.base.model.AliceSkill import AliceSkill
 from core.base.model.Intent import Intent
 from core.dialog.model.DialogSession import DialogSession
-from core.util.Decorators import Online
+from core.util.Decorators import Online, IntentHandler
 
 
 class TimeSlotEnum(Enum):
@@ -17,13 +17,12 @@ class TimeSlotEnum(Enum):
 class TVProvider(ABC):
 	""" Abstract class to implement """
 
-
 	@staticmethod
 	def getSlot(session: DialogSession) -> TimeSlotEnum:
-		if not session.slotValue('TVTimeSlot'):
+		tvTimeSlot = session.slotValue('TVTimeSlot')
+		if tvTimeSlot:
 			return TimeSlotEnum.now
-		else:
-			return TimeSlotEnum(session.slotValue('TVTimeSlot'))
+		return TimeSlotEnum(session.slotValue('TVTimeSlot'))
 
 
 	@abstractmethod
@@ -51,25 +50,17 @@ class TVProgram(AliceSkill):
 	}
 
 	### Intents
-	_INTENT_WHATS_ON_TV = Intent('whatsOnTV_TVT')
-	_INTENT_FAV_READ = Intent('readFav_TVT')
 	_INTENT_FAV_CHECK = Intent('checkFav_TVT')
 	_INTENT_FAV_ADD = Intent('addFav_TVT')
 	_INTENT_FAV_DEL = Intent('delFav_TVT')
-	_INTENT_FAV_DEL_ALL = Intent('delAllFav_TVT')
-	_INTENT_FAV_CONF_DEL_ALL = Intent('AnswerYesOrNo', isProtected=True)
 	_INTENT_SPELL_WORD = Intent('SpellWord', isProtected=True)
 
 
 	def __init__(self):
+		#TODO the Intent SpellWord appears to be never activated by a continue session
+		# and is deactivated by default -> either remove it or use it in a continue session
+		# (should use the IntentHandler decorator aswell when it will be used)
 		self._INTENTS = [
-			(self._INTENT_WHATS_ON_TV, self.whatsOnTVIntent),
-			(self._INTENT_FAV_READ, self.readFavIntent),
-			(self._INTENT_FAV_CHECK, self.checkFavIntent),
-			(self._INTENT_FAV_ADD, self.addFavIntent),
-			(self._INTENT_FAV_DEL, self.delFavIntent),
-			(self._INTENT_FAV_DEL_ALL, self.delFavListIntent),
-			(self._INTENT_FAV_CONF_DEL_ALL, self.confFavDelIntent),
 			self._INTENT_SPELL_WORD
 		]
 
@@ -77,10 +68,6 @@ class TVProgram(AliceSkill):
 			self._INTENT_FAV_ADD  : self.addFavIntent,
 			self._INTENT_FAV_DEL  : self.delFavIntent,
 			self._INTENT_FAV_CHECK: self.checkFavIntent
-		}
-
-		self._INTENT_FAV_CONF_DEL_ALL.dialogMapping = {
-			self._INTENT_FAV_DEL_ALL: self.delFavListIntent
 		}
 
 		super().__init__(self._INTENTS, databaseSchema=self._DATABASE)
@@ -98,57 +85,6 @@ class TVProgram(AliceSkill):
 		return list()
 
 
-	def _deleteFavList(self, session: DialogSession):
-		self.DatabaseManager.delete(tableName=self._DBNAME,
-		                            query='DELETE FROM :__table__ WHERE username = :username',
-		                            values={'username': session.user},
-		                            callerName=self.name)
-
-
-	def _addFavItemInt(self, items: list, session: DialogSession) -> tuple:
-		added = list()
-		exist = list()
-		already = self._getFavDB(session)
-		for item in items:
-			if item in already:
-				exist.append(item)
-			else:
-				added.append(item)
-				self.databaseInsert(tableName=self._DBNAME, values={'username': session.user, 'channel': item})
-
-		return added, exist
-
-
-	def _deleteFavItemInt(self, items: list, session: DialogSession) -> tuple:
-		removed = list()
-		exist = list()
-		old = self._getFavDB(session)
-		for item in items:
-			if item not in old:
-				exist.append(item)
-			else:
-				removed.append(item)
-
-			self.DatabaseManager.delete(tableName=self._DBNAME,
-			                            query='DELETE FROM :__table__ WHERE username = :username AND channel = :channel',
-			                            values={'username': session.user, 'channel': item},
-			                            callerName=self.name)
-
-		return removed, exist
-
-
-	def _checkFavListInt(self, items: list, session: DialogSession) -> tuple:
-		found = list()
-		missing = list()
-		old = self._getFavDB(session)
-		for item in items:
-			if item in old:
-				found.append(item)
-			else:
-				missing.append(item)
-		return found, missing
-
-
 	### Session Handling ###
 	def _getChannelItems(self, session: DialogSession) -> list:
 		"""get the values of channelItem as a list of strings"""
@@ -157,16 +93,14 @@ class TVProgram(AliceSkill):
 			return [item.capitalize()]
 
 		items = [x.value['value'] for x in session.slotsAsObjects.get('channelItem', list()) if
-		         x.value['value'] != "unknownword"]
+				 x.value['value'] != "unknownword"]
 
-		if not items:
-			return self._getFavDB(session)
-
-		return items
+		return items or self._getFavDB(session)
 
 
 	### INTENTS ###
 	@Online
+	@IntentHandler('whatsOnTV_TVT')
 	def whatsOnTVIntent(self, session: DialogSession, **_kwargs):
 		""" get requested channels or get favourites!"""
 		channels = self._getChannelItems(session)
@@ -187,9 +121,9 @@ class TVProgram(AliceSkill):
 		program = provider.getProgram(session, channels)
 
 		""" build result sentence """
-		result_sentence = ""
-		for show in program:
-			result_sentence += show['Channel'] + ": " + show['Show'] + " . "
+		result_sentence = ''.join([
+			f"{show['Channel']}: {show['Show']} . " for show in program
+		])
 
 		if not result_sentence:
 			self.endDialog(session.sessionId, text=self.randomTalk('noInformation'))
@@ -199,47 +133,93 @@ class TVProgram(AliceSkill):
 
 
 	#### Intents: Fav List handling
+	@IntentHandler('delAllFav_TVT')
 	def delFavListIntent(self, session: DialogSession, **_kwargs):
 		self.continueDialog(
 			sessionId=session.sessionId,
 			text=self.randomTalk('chk_del_all'),
-			intentFilter=[self._INTENT_FAV_CONF_DEL_ALL],
-			currentDialogState=str(self._INTENT_FAV_DEL_ALL))
+			intentFilter=[Intent('AnswerYesOrNo')],
+			currentDialogState='deleteAllQuestion')
 
 
+	@IntentHandler('AnswerYesOrNo', requiredState='deleteAllQuestion', isProtected=True)
 	def confFavDelIntent(self, session: DialogSession, **_kwargs):
 		if self.Commons.isYes(session):
-			self._deleteFavList(session)
+			self.DatabaseManager.delete(
+				tableName=self._DBNAME,
+				query='DELETE FROM :__table__ WHERE username = :username',
+				values={'username': session.user},
+				callerName=self.name)
 			self.endDialog(session.sessionId, text=self.randomTalk('del_all'))
 		else:
 			self.endDialog(session.sessionId, text=self.randomTalk('nodel_all'))
 
 
+	@IntentHandler('addFav_TVT')
 	def addFavIntent(self, session: DialogSession):
-		items = self._getChannelItems(session)
-		if items:
-			added, exist = self._addFavItemInt(items, session)
-			self.endDialog(session.sessionId, text=self._combineLists('add', added, exist))
+		channels = self._getChannelItems(session)
+		if not channels:
+			return
+
+		newFavChannel = list()
+		existingFavChannel = list()
+		favChannels = self._getFavDB(session)
+		for channel in channels:
+			if channel in favChannels:
+				existingFavChannel.append(channel)
+			else:
+				newFavChannel.append(channel)
+				self.databaseInsert(tableName=self._DBNAME, values={'username': session.user, 'channel': channel})
+
+		self.endDialog(session.sessionId, text=self._combineLists('add', newFavChannel, existingFavChannel))
 
 
+	@IntentHandler('delFav_TVT')
 	def delFavIntent(self, session: DialogSession):
-		items = self._getChannelItems(session)
-		if items:
-			removed, exist = self._deleteFavItemInt(items, session)
-			self.endDialog(session.sessionId, text=self._combineLists('rem', removed, exist))
+		channels = self._getChannelItems(session)
+		if not channels:
+			return
+
+		removedFavChannels = list()
+		notExistingFavChannels = list()
+		favChannels = self._getFavDB(session)
+		for channel in channels:
+			if channel not in favChannels:
+				notExistingFavChannels.append(channel)
+			else:
+				removedFavChannels.append(channel)
+				self.DatabaseManager.delete(
+					tableName=self._DBNAME,
+					query='DELETE FROM :__table__ WHERE username = :username AND channel = :channel',
+					values={'username': session.user, 'channel': channel},
+					callerName=self.name)
+
+		self.endDialog(session.sessionId, text=self._combineLists('rem', removedFavChannels, notExistingFavChannels))
 
 
+	@IntentHandler('checkFav_TVT')
 	def checkFavIntent(self, session: DialogSession):
-		items = self._getChannelItems(session)
-		if items:
-			found, missing = self._checkFavListInt(items, session)
-			self.endDialog(session.sessionId, text=self._combineLists('chk', found, missing))
+		channels = self._getChannelItems(session)
+		if not channels:
+			return
+		
+		foundChannels = list()
+		missingChannels = list()
+		favChannels = self._getFavDB(session)
+		for channel in channels:
+			if channel in favChannels:
+				foundChannels.append(channel)
+			else:
+				missingChannels.append(channel)
+
+		self.endDialog(session.sessionId, text=self._combineLists('chk', foundChannels, missingChannels))
 
 
+	@IntentHandler('readFav_TVT')
 	def readFavIntent(self, session: DialogSession, **_kwargs):
 		"""read the content of the list"""
-		itemList = self._getFavDB(session)
-		self.endDialog(session.sessionId, text=self._getTextForList('read', itemList))
+		favChannels = self._getFavDB(session)
+		self.endDialog(session.sessionId, text=self._getTextForList('read', favChannels))
 
 
 	#### general List/Text operations
