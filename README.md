@@ -12,7 +12,7 @@ What is on TV? Look it up on TVProgram!
 
 - Version: 1.0.1
 - Author: philipp2310
-- Maintainers:
+- Maintainers: Psychokiller1888
 - Alice minimum version: 1.0.0-a4
 - Conditions:
   - de
