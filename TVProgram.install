@@ -1,1 +1,14 @@
-{"name": "TVProgram", "version": 1.0, "author": "philipp2310", "maintainers": ["maxbachmann", "Psychokiller1888"], "desc": "What's on TV today?", "aliceMinVersion": 0.13, "systemRequirements": [], "pipRequirements": ["xmltodict"], "conditions": {"lang": ["de"], "online": true}}
+{
+	"name": "TVProgram",
+	"version": "1.0.1",
+	"author": "philipp2310",
+	"maintainers": ["Psychokiller1888"],
+	"desc": "What's on TV today?",
+	"aliceMinVersion": "1.0.0-a4",
+	"systemRequirements": [],
+	"pipRequirements": ["xmltodict"],
+	"conditions": {
+		"lang": ["de"],
+		"online": true
+	}
+}
