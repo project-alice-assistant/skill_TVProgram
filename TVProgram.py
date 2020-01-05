@@ -48,7 +48,7 @@ class TVProgram(AliceSkill):
 	}
 
 	def __init__(self):
-		super().__init__(self._INTENTS, databaseSchema=self._DATABASE)
+		super().__init__(databaseSchema=self._DATABASE)
 
 
 	def _getFavDB(self, session: DialogSession) -> list:
