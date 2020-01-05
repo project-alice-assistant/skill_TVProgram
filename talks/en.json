@@ -175,7 +175,7 @@
 	},
 	"chk_f_one": {
 		"default": [
-			"I couln't find {}.",
+			"I couldn't find {}.",
 			"{} is not on your list."
 		],
 		"short": [

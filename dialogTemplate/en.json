@@ -319,7 +319,7 @@
 				"{RTL:=>channelItem} and {RTL:=>channelItem} aren't my favourite channels anymore.",
 				"Please remember, I don't like the channels {RTL:=>channelItem}, {RTL:=>channelItem} and {RTL:=>channelItem} anymore.",
 				"Remove {RTL:=>channelItem} and {RTL:=>channelItem} from the list of my favourite channels please",
-				"Remmeber, {RTL:=>channelItem} isn't my favourite channel anymore.",
+				"Remember, {RTL:=>channelItem} isn't my favourite channel anymore.",
 				"{RTL:=>channelItem} has to be removed from my channel list."
 			],
 			"slots": [
