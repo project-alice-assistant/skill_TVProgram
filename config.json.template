@@ -1,0 +1,7 @@
+{
+	"TVProvider": {
+		"defaultValue": "TVSpielfilm",
+		"dataType": "string",
+		"description": "Provider for the television data"
+	}
+}
