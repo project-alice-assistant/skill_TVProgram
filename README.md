@@ -1,5 +1,7 @@
 # TV Program
 
+[![Continous Integration](https://gitlab.com/project-alice-assistant/skills/skill_TVProgram/badges/master/pipeline.svg)](https://gitlab.com/project-alice-assistant/skills/skill_TVProgram/pipelines/latest)
+
 ### Download
 
 ##### > WGET method
