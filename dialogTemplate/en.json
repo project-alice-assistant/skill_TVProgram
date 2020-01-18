@@ -261,8 +261,6 @@
 				"Please check if {RTL:=>channelItem} is on my channel list?",
 				"Please check if {RTL:=>channelItem} is already on my channel list?",
 				"Check please if {RTL:=>channelItem} is on my channel list",
-				"Is {RTL:=>channelItem} on my channel list",
-				"Do I have {RTL:=>channelItem} on my channel list",
 				"Can you please check if {RTL:=>channelItem} is on my channel list?"
 			],
 			"slots": [
@@ -288,7 +286,6 @@
 				"{RTL:=>channelItem} is my favourite tv channel.",
 				"{RTL:=>channelItem} and {RTL:=>channelItem} are my favourite TV channels",
 				"Please remember, {RTL:=>channelItem}, {RTL:=>channelItem} and {RTL:=>channelItem} are my favourite channels",
-				"Please add {RTL:=>channelItem} and {RTL:=>channelItem} to my channel list",
 				"Remember, {RTL:=>channelItem} is my favourite channel",
 				"Please remeber, that {RTL:=>channelItem} and {RTL:=>channelItem} are my favourite channels",
 				"{RTL:=>channelItem} has to be on my channel list",

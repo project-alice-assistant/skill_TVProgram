@@ -255,7 +255,6 @@
 				"lies mir bitte meine Lieblingssender vor",
 				"kannst du mir meine Liebligssender vorlesen?",
 				"welche Lieblingssender habe ich?",
-				"welche sender schaue ich am liebsten?",
 				"welche Fernsehsender schaue ich am liebsten?",
 				"welche Fernsehsender stehen auf meiner favoritenliste?",
 				"Lies mir bitte die Fernsehsender meiner Favoriten vor",
@@ -284,7 +283,6 @@
 			"enabledByDefault": true,
 			"utterances": [
 				"Ist {RTL:=>channelItem} mein Lieblingssender?",
-				"steht {RTL:=>channelItem} auf meiner Senderliste?",
 				"steht {RTL:=>channelItem} auf der Senderliste?",
 				"weißt du eigentlich, dass ich {RTL:=>channelItem} am liebsten schaue?",
 				"kannst du bitte prüfen ob {RTL:=>channelItem} auf meiner Lieblingssenderliste steht?",
