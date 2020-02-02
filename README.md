@@ -13,10 +13,10 @@ wget http://skills.projectalice.ch/TVProgram -O ~/ProjectAlice/system/moduleInst
 ### Description
 What is on TV? Look it up on TVProgram!
 
-- Version: 1.0.2
+- Version: 1.1.0
 - Author: philipp2310
 - Maintainers: Psychokiller1888, maxbachmann
-- Alice minimum version: 1.0.0-a4
+- Alice minimum version: 1.0.0-a5
 - Conditions:
   - de
 - Requirements:
