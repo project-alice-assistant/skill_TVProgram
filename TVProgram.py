@@ -205,7 +205,7 @@ class TVProgram(AliceSkill):
 
 
 	def _getTextForList(self, pref: str, items: list) -> str:
-		self.log.info(items)
+		self.logInfo(items)
 		"""Combine entries of list into wrapper sentence"""
 		if not items:
 			return self.randomTalk(f'{pref}_none')
