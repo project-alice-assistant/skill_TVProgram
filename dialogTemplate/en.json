@@ -233,7 +233,8 @@
 				"What channels do I like?",
 				"What television channels do I like?",
 				"Which channels are my favourite?"
-			]
+			],
+			"slots": []
 		},
 		{
 			"name": "delAllFav_TVT",
@@ -247,7 +248,8 @@
 				"Clear my complete channel list",
 				"Delete my complete channel list please",
 				"Please clear the channel list."
-				]
+				],
+			"slots": []
 		},
 		{
 			"name": "checkFav_TVT",
