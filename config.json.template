@@ -2,6 +2,7 @@
 	"TVProvider": {
 		"defaultValue": "TVSpielfilm",
 		"dataType": "string",
+		"isSensitve": false,
 		"description": "Provider for the television data"
 	}
 }

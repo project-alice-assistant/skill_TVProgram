@@ -2,14 +2,6 @@
 
 [![Continous Integration](https://gitlab.com/project-alice-assistant/skills/skill_TVProgram/badges/master/pipeline.svg)](https://gitlab.com/project-alice-assistant/skills/skill_TVProgram/pipelines/latest)
 
-### Download
-
-##### > WGET method
-```bash
-wget http://skills.projectalice.ch/TVProgram -O ~/ProjectAlice/system/moduleInstallTickets/TVProgram.install
-```
-
-
 ### Description
 What is on TV? Look it up on TVProgram!
 
