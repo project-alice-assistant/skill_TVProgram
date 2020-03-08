@@ -261,7 +261,8 @@
 				"kannst du mir bitte meine lieblings Fernsehsender nennen?",
 				"bitte zähle meine lieblings fernsehsender auf",
 				"zähle bitte meine lieblings sender auf"
-			]
+			],
+			"slots": []
 		},
 		{
 			"name": "delAllFav_TVT",
@@ -275,7 +276,8 @@
 				"Lösche meine komplette Senderliste",
 				"Entferne bitte meine komplette Senderliste",
 				"Bitte entferne meine komplette Senderliste"
-				]
+				],
+			"slots": []
 		},
 		{
 			"name": "checkFav_TVT",
