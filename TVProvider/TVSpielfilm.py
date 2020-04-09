@@ -41,9 +41,9 @@ class TVSpielfilm(TVProvider):
 				result.append(entry)
 		return result
 
-	def doReplacing(self, result_sentence: str) -> str:
+	def doReplacing(self, resultSentence: str) -> str:
 		"""replace channels"""
-		return result_sentence \
+		return resultSentence \
 			.replace("ServusTV Deutschland", "Servus TV") \
 			.replace("SAT.1", "Sat 1") \
 			.replace("DMAX", "De Max") \

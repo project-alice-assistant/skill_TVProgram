@@ -82,27 +82,27 @@ class TVProgram(AliceSkill):
 			return
 
 		""" get provider of data """
-		class_name = self.getConfig('TVProvider')
-		if not class_name:
-			class_name = self._FALLBACK_PROVIDER
-			self.updateConfig('TVProvider', class_name)
-		module = importlib.import_module(f'skills.TVProgram.TVProvider.{class_name}')
-		class_ = getattr(module, class_name)
-		provider = class_()
+		className = self.getConfig('TVProvider')
+		if not className:
+			className = self._FALLBACK_PROVIDER
+			self.updateConfig('TVProvider', className)
+		module = importlib.import_module(f'skills.TVProgram.TVProvider.{className}')
+		classDesc = getattr(module, className)
+		provider = classDesc()
 
 		""" get List of dicts """
 		program = provider.getProgram(session, channels)
 
 		""" build result sentence """
-		result_sentence = ''.join([
+		resultSentence = ''.join([
 			f"{show['Channel']}: {show['Show']} . " for show in program
 		])
 
-		if not result_sentence:
+		if not resultSentence:
 			self.endDialog(session.sessionId, text=self.randomTalk('noInformation'))
 		else:
-			result_sentence = provider.doReplacing(result_sentence)
-			self.endDialog(session.sessionId, text=self.randomTalk(f'{provider.getSlot(session).value}TV', [result_sentence]))
+			resultSentence = provider.doReplacing(resultSentence)
+			self.endDialog(session.sessionId, text=self.randomTalk(f'{provider.getSlot(session).value}TV', [resultSentence]))
 
 
 	#### Intents: Fav List handling
@@ -175,7 +175,7 @@ class TVProgram(AliceSkill):
 		channels = self._getChannelItems(session)
 		if not channels:
 			return
-		
+
 		foundChannels = list()
 		missingChannels = list()
 		favChannels = self._getFavDB(session)
