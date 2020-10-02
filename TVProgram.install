@@ -1,16 +1,23 @@
 {
-	"name": "TVProgram",
-	"version": "1.1.5",
-	"icon": "fas fa-tv",
-	"category": "information",
-	"author": "philipp2310",
-	"maintainers": ["Psychokiller1888", "maxbachmann"],
-	"desc": "What's on TV today?",
-	"aliceMinVersion": "1.0.0-a5",
-	"systemRequirements": [],
-	"pipRequirements": ["xmltodict"],
-	"conditions": {
-		"lang": ["de"],
-		"online": true
-	}
+    "name": "TVProgram",
+    "version": "1.1.6",
+    "icon": "fas fa-tv",
+    "category": "information",
+    "author": "philipp2310",
+    "maintainers": [
+        "Psychokiller1888",
+        "maxbachmann"
+    ],
+    "desc": "What's on TV today?",
+    "aliceMinVersion": "1.0.0-a5",
+    "systemRequirements": [],
+    "pipRequirements": [
+        "xmltodict"
+    ],
+    "conditions": {
+        "lang": [
+            "de"
+        ],
+        "online": true
+    }
 }
