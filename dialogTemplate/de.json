@@ -1,7 +1,5 @@
 {
 	"skill": "TVProgram",
-	"icon": "film",
-	"description": "Was kommt heute Abend im Fernsehn?",
 	"slotTypes": [
 		{
 			"name": "TVTimeSlot",
@@ -194,7 +192,6 @@
 	"intents": [
 		{
 			"name": "whatsOnTV_TVT",
-			"description": "Was kommt heute Abend im Fernsehn?",
 			"enabledByDefault": true,
 			"utterances": [
 				"was kommt auf {RTL:=>channelItem}",
@@ -242,7 +239,6 @@
 		},
 		{
 			"name": "readFav_TVT",
-			"description": "Was sind meine Lieblingssender?",
 			"enabledByDefault": true,
 			"utterances": [
 				"was sind meine Lieblingssender?",
@@ -266,7 +262,6 @@
 		},
 		{
 			"name": "delAllFav_TVT",
-			"description": "Lösche meine komplette Senderliste?",
 			"enabledByDefault": true,
 			"utterances": [
 				"Lösche bitte meine komplette Senderliste",
@@ -281,7 +276,6 @@
 		},
 		{
 			"name": "checkFav_TVT",
-			"description": "Ist RTL mein Lieblingssender?",
 			"enabledByDefault": true,
 			"utterances": [
 				"Ist {RTL:=>channelItem} mein Lieblingssender?",
@@ -308,7 +302,6 @@
 		},
 		{
 			"name": "addFav_TVT",
-			"description": "Schreibe RTL und ARD auf mein Senderliste?",
 			"enabledByDefault": true,
 			"utterances": [
 				"Schreibe {RTL:=>channelItem} und {RTL:=>channelItem} auf meine Senderliste",
@@ -339,7 +332,6 @@
 		},
 		{
 			"name": "delFav_TVT",
-			"description": "Streiche RTL und ARD von meiner Senderliste?",
 			"enabledByDefault": true,
 			"utterances": [
 				"Streiche {RTL:=>channelItem} und {RTL:=>channelItem} von meiner Senderliste",

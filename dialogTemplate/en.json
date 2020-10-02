@@ -1,7 +1,5 @@
 {
 	"skill": "TVProgram",
-	"icon": "film",
-	"description": "What is on television?",
 	"slotTypes": [
 		{
 			"name": "TVTimeSlot",
@@ -193,7 +191,6 @@
 	"intents": [
 		{
 			"name": "whatsOnTV_TVT",
-			"description": "Whats on TV?",
 			"enabledByDefault": true,
 			"utterances": [
 				"What's on {RTL:=>channelItem}",
@@ -218,7 +215,6 @@
 		},
 		{
 			"name": "readFav_TVT",
-			"description": "What are my favourite channels?",
 			"enabledByDefault": true,
 			"utterances": [
 				"What are my favourite channels?",
@@ -238,7 +234,6 @@
 		},
 		{
 			"name": "delAllFav_TVT",
-			"description": "Clear my complete channel list?",
 			"enabledByDefault": true,
 			"utterances": [
 				"Please delete my complete channel list",
@@ -253,7 +248,6 @@
 		},
 		{
 			"name": "checkFav_TVT",
-			"description": "Is ABC on my channel list?",
 			"enabledByDefault": true,
 			"utterances": [
 				"Is {RTL:=>channelItem} my favourite channel?",
@@ -277,7 +271,6 @@
 		},
 		{
 			"name": "addFav_TVT",
-			"description": "Add ABC and BBC to my channel list.",
 			"enabledByDefault": true,
 			"utterances": [
 				"Add {RTL:=>channelItem} and {RTL:=>channelItem} to my channe list",
@@ -306,7 +299,6 @@
 		},
 		{
 			"name": "delFav_TVT",
-			"description": "Remove ABC and CBN from my channel list?",
 			"enabledByDefault": true,
 			"utterances": [
 				"Remove {RTL:=>channelItem} and {RTL:=>channelItem} from my channel list.",
