@@ -223,14 +223,12 @@
 			"slots": [
 				{
 					"name": "channelItem",
-					"description": null,
 					"required": false,
 					"type": "TVChannel",
 					"missingQuestion": ""
 				},
 				{
 					"name": "TVTimeSlot",
-					"description": null,
 					"required": false,
 					"type": "TVTimeSlot",
 					"missingQuestion": ""
@@ -293,7 +291,6 @@
 			"slots": [
 				{
 					"name": "channelItem",
-					"description": null,
 					"required": false,
 					"type": "TVChannel",
 					"missingQuestion": ""
@@ -323,7 +320,6 @@
 			"slots": [
 				{
 					"name": "channelItem",
-					"description": null,
 					"required": false,
 					"type": "TVChannel",
 					"missingQuestion": ""
@@ -353,7 +349,6 @@
 			"slots": [
 				{
 					"name": "channelItem",
-					"description": null,
 					"required": false,
 					"type": "TVChannel",
 					"missingQuestion": ""
