@@ -115,7 +115,7 @@ class TVProgram(AliceSkill):
 			currentDialogState='deleteAllQuestion')
 
 
-	@IntentHandler('AnswerYesOrNo', requiredState='deleteAllQuestion', isProtected=True)
+	@IntentHandler('AnswerYesOrNo', requiredState='deleteAllQuestion')
 	def confFavDelIntent(self, session: DialogSession, **_kwargs):
 		if self.Commons.isYes(session):
 			self.DatabaseManager.delete(
